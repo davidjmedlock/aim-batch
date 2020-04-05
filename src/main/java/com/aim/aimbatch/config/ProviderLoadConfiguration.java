@@ -96,9 +96,11 @@ public class ProviderLoadConfiguration {
                 .build();
     }
 
+    // TODO: Add tenantHashKey as a parameter here, pass it in from the call to the step, and initialize it in the tasklet; use it to filter the delete
     @Bean
-    public ProviderLoadResetTasklet providerLoadResetTasklet() {
-        return new ProviderLoadResetTasklet(this.jdbcTemplate);
+    @StepScope
+    public ProviderLoadResetTasklet providerLoadResetTasklet(@Value("#{jobParameters[tenantHashKey]}") String tenantHashKey) {
+        return new ProviderLoadResetTasklet(this.jdbcTemplate, tenantHashKey);
     }
 
     @Bean
@@ -140,7 +142,7 @@ public class ProviderLoadConfiguration {
     @Bean
     public Step providerLoadReset() {
         return stepBuilderFactory.get("providerLoadReset")
-                .tasklet(providerLoadResetTasklet()).build();
+                .tasklet(providerLoadResetTasklet(ProviderLoadConfiguration.OVERRIDDEN_BY_EXPRESSION)).build();
     }
 
     @Bean

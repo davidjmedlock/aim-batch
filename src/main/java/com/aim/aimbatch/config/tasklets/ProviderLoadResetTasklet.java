@@ -14,15 +14,24 @@ public class ProviderLoadResetTasklet implements Tasklet {
 
     private JdbcTemplate jdbcTemplate;
 
-    public ProviderLoadResetTasklet(JdbcTemplate jdbcTemplate) {
+    private String tenantHashKey;
+
+    public ProviderLoadResetTasklet(JdbcTemplate jdbcTemplate, String tenantHashKey) {
         this.jdbcTemplate = jdbcTemplate;
+        this.tenantHashKey = tenantHashKey;
     }
 
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
         log.info("Resetting the Provider Load and Provider Load Error tables.");
-        jdbcTemplate.execute("DELETE FROM tmp_provider_load_error");
-        jdbcTemplate.execute("DELETE FROM tmp_provider_load");
+
+        String sql = "DELETE FROM tmp_provider_load_error WHERE tenant_hash_key = ?";
+        Object[] args = new Object[] {tenantHashKey};
+        jdbcTemplate.update(sql, args);
+
+        sql = "DELETE FROM tmp_provider_load WHERE tenant_hash_key = ?";
+        args = new Object[] {tenantHashKey};
+        jdbcTemplate.update(sql, args);
 
         return RepeatStatus.FINISHED;
     }

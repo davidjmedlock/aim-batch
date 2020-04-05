@@ -41,6 +41,9 @@ public class TenantKey implements Serializable {
     @Column(name = "health_plan_id")
     private Long healthPlanId;
 
+    @Column(name = "provider_group_id")
+    private Long providerGroupId;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -114,6 +117,20 @@ public class TenantKey implements Serializable {
     public void setHealthPlanId(Long healthPlanId) {
         this.healthPlanId = healthPlanId;
     }
+
+    public Long getProviderGroupId() {
+        return providerGroupId;
+    }
+
+    public TenantKey providerGroupId(Long providerGroupId) {
+        this.providerGroupId = providerGroupId;
+        return this;
+    }
+
+    public void setProviderGroupId(Long providerGroupId) {
+        this.providerGroupId = providerGroupId;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -140,6 +157,7 @@ public class TenantKey implements Serializable {
                 ", tenantHashKey='" + getTenantHashKey() + "'" +
                 ", active='" + isActive() + "'" +
                 ", healthPlanId=" + getHealthPlanId() +
+                ", providerGroupId=" + getProviderGroupId() +
                 "}";
     }
 }
