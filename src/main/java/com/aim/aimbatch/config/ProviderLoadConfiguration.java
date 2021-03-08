@@ -45,20 +45,21 @@ public class ProviderLoadConfiguration {
                                             "latitude", "longitude", "location_assigned_members", "taxonomy_code", "specialty_code",
                                             "primarySpecialty", "board_certified", "board_eligible", "is_pcp", "accepting_new_patients",
                                             "accepting_new_referrals", "network_tier_id", "provider_group_name", "outpatient_appointment_availability",
-                                            "in_directory", "contract_effective_date", "contract_termination_date"};
+                                            "in_directory", "contract_effective_date", "contract_termination_date", "credential", "gender",
+                                            "salutation", "medical_group_npi", "in_network", "source_system"};
 
     private static final String SQL = "INSERT INTO tmp_provider_load (health_plan_provider_id, network_code, first_name, last_name, business_name, " +
             "npi, tax_id, provider_type, provider_assigned_members, full_or_part_time, in_person_after_hours, supervising_specialist, supervising_npi, " +
             "specialization_certificate, health_plan_provider_address_id, address_type, clinic_name, address_1, address_2, address_3, city, state, zip, county, " +
             "phone_number, fax_number, email, latitude, longitude, location_assigned_members, taxonomy_code, specialty_code, primary_specialty, board_certified, " +
             "board_eligible, is_pcp, accepting_new_patients, accepting_new_referrals, network_tier_id, provider_group_name, outpatient_appointment_availability, " +
-            "in_directory, contract_effective_date, contract_termination_date) " +
+            "in_directory, contract_effective_date, contract_termination_date, credential, gender, salutation, medical_group_npi, in_network, source_system) " +
             "VALUES (:healthPlanProviderId, :networkCode, :firstName, :lastName, :businessName, :npi, :taxId, " +
             ":providerType, :providerAssignedMembers, :fullOrPartTime, :inPersonAfterHours, :supervisingSpecialist, :supervisingNpi, :specializationCertificate, " +
             ":healthPlanProviderAddressId, :addressType, :clinicName, :address1, :address2, :address3, :city, :state, :zip, :county, :phoneNumber, :faxNumber," +
             ":email, :latitude, :longitude, :locationAssignedMembers, :taxonomyCode, :specialtyCode, :primarySpecialty, :boardCertified, :boardEligible, :isPcp, " +
             ":acceptingNewPatients, :acceptingNewReferrals, :networkTierId, :providerGroupName, :outpatientAppointmentAvailability, :inDirectory, :contractEffectiveDate, " +
-            ":contractTerminationDate)";
+            ":contractTerminationDate, :credential, :gender, :salutation, :medicalGroupNpi, :inNetwork, :sourceSystem)";
 
     @Autowired
     public JobBuilderFactory jobBuilderFactory;

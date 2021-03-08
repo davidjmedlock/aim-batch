@@ -181,6 +181,27 @@ public class TmpProviderLoad implements Serializable {
     @Column(name = "network_id")
     private Long networkId;
 
+    @Column(name = "credential")
+    private String credential;
+
+    @Column(name = "gender")
+    private String gender;
+
+    @Column(name = "salutation")
+    private String salutation;
+
+    @Column(name = "medical_group_npi")
+    private String medicalGroupNpi;
+
+    @Column(name = "data_entry_endpoint")
+    private String dataEntryEndpoint;
+
+    @Column(name = "source_system")
+    private String sourceSystem;
+
+    @Column(name = "in_network")
+    private Boolean inNetwork;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -878,6 +899,102 @@ public class TmpProviderLoad implements Serializable {
     public void setNetworkId(Long networkId) {
         this.networkId = networkId;
     }
+
+    public String getCredential() {
+        return credential;
+    }
+
+    public TmpProviderLoad credential(String credential) {
+        this.credential = credential;
+        return this;
+    }
+
+    public void setCredential(String credential) {
+        this.credential = credential;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public TmpProviderLoad gender(String gender) {
+        this.gender = gender;
+        return this;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getSalutation() {
+        return salutation;
+    }
+
+    public TmpProviderLoad salutation(String salutation) {
+        this.salutation = salutation;
+        return this;
+    }
+
+    public void setSalutation(String salutation) {
+        this.salutation = salutation;
+    }
+
+    public String getMedicalGroupNpi() {
+        return medicalGroupNpi;
+    }
+
+    public TmpProviderLoad medicalGroupNpi(String medicalGroupNpi) {
+        this.medicalGroupNpi = medicalGroupNpi;
+        return this;
+    }
+
+    public void setMedicalGroupNpi(String medicalGroupNpi) {
+        this.medicalGroupNpi = medicalGroupNpi;
+    }
+
+    public String getDataEntryEndpoint() {
+        return dataEntryEndpoint;
+    }
+
+    public TmpProviderLoad dataEntryEndpoint(String dataEntryEndpoint) {
+        this.dataEntryEndpoint = dataEntryEndpoint;
+        return this;
+    }
+
+    public void setDataEntryEndpoint(String dataEntryEndpoint) {
+        this.dataEntryEndpoint = dataEntryEndpoint;
+    }
+
+    public String getSourceSystem() {
+        return sourceSystem;
+    }
+
+    public TmpProviderLoad sourceSystem(String sourceSystem) {
+        this.sourceSystem = sourceSystem;
+        return this;
+    }
+
+    public void setSourceSystem(String sourceSystem) {
+        this.sourceSystem = sourceSystem;
+    }
+
+    public Boolean getInNetwork() {
+        return inNetwork;
+    }
+
+    public Boolean isInNetwork() {
+        return inNetwork;
+    }
+
+    public TmpProviderLoad inNetwork(Boolean inNetwork) {
+        this.inNetwork = inNetwork;
+        return this;
+    }
+
+    public void setInNetwork(Boolean inNetwork) {
+        this.inNetwork = inNetwork;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -953,6 +1070,13 @@ public class TmpProviderLoad implements Serializable {
                 ", providerAddressId=" + getProviderAddressId() +
                 ", providerTaxonomyId=" + getProviderTaxonomyId() +
                 ", networkId=" + getNetworkId() +
+                ", credential=" + getCredential() +
+                ", gender=" + getGender() +
+                ", salutation=" + getSalutation() +
+                ", medicalGroupNpi=" + getMedicalGroupNpi() +
+                ", dataEntryEndpoint='" + getDataEntryEndpoint() + "'" +
+                ", sourceSystem='" + getSourceSystem() + "'" +
+                ", inNetwork='" + getInNetwork() + "'" +
                 "}";
     }
 }

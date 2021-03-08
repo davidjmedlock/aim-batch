@@ -66,6 +66,16 @@ public class ProviderScrubTasklet implements Tasklet {
         jdbcTemplate.execute("SELECT provider_scrub_36_invalid_contract_termination_date()");
         jdbcTemplate.execute("SELECT provider_scrub_37_invalid_provider_assigned_members()");
         jdbcTemplate.execute("SELECT provider_scrub_38_invalid_location_assigned_members()");
+        jdbcTemplate.execute("SELECT provider_scrub_39_invalid_credential()");
+        jdbcTemplate.execute("SELECT provider_scrub_40_invalid_gender()");
+        jdbcTemplate.execute("SELECT provider_scrub_42_invalid_salutation()");
+        jdbcTemplate.execute("SELECT provider_scrub_43_in_network_expired_contract()");
+        jdbcTemplate.execute("SELECT provider_scrub_44_contract_expired_members_assigned()");
+        jdbcTemplate.execute("SELECT provider_scrub_45_oon_members_assigned()");
+        jdbcTemplate.execute("SELECT provider_scrub_46_expired_contract()");
+        jdbcTemplate.execute("SELECT provider_scrub_47_expired_contract_accepting_new_members()");
+        jdbcTemplate.execute("SELECT provider_scrub_48_members_assigned_non_pcp()");
+        jdbcTemplate.execute("SELECT provider_scrub_49_non_pcp_accepting_new_members()");
         jdbcTemplate.execute("SELECT provider_scrub_998_post_scrub()");
         jdbcTemplate.execute("SELECT provider_scrub_999_flag_error_records()");
 

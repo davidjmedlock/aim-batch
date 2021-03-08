@@ -198,6 +198,27 @@ public class TmpProviderLoadError implements Serializable {
     @Column(name = "tenant_hash_key")
     private String tenantHashKey;
 
+    @Column(name = "credential")
+    private String credential;
+
+    @Column(name = "gender")
+    private String gender;
+
+    @Column(name = "salutation")
+    private String salutation;
+
+    @Column(name = "medical_group_npi")
+    private String medicalGroupNpi;
+
+    @Column(name = "data_entry_endpoint")
+    private String dataEntryEndpoint;
+
+    @Column(name = "source_system")
+    private String sourceSystem;
+
+    @Column(name = "in_network")
+    private Boolean inNetwork;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -961,6 +982,101 @@ public class TmpProviderLoadError implements Serializable {
         this.tenantHashKey = tenantHashKey;
     }
 
+    public String getCredential() {
+        return credential;
+    }
+
+    public TmpProviderLoadError credential(String credential) {
+        this.credential = credential;
+        return this;
+    }
+
+    public void setCredential(String credential) {
+        this.credential = credential;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public TmpProviderLoadError gender(String gender) {
+        this.gender = gender;
+        return this;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getSalutation() {
+        return salutation;
+    }
+
+    public TmpProviderLoadError salutation(String salutation) {
+        this.salutation = salutation;
+        return this;
+    }
+
+    public void setSalutation(String salutation) {
+        this.salutation = salutation;
+    }
+
+    public String getMedicalGroupNpi() {
+        return medicalGroupNpi;
+    }
+
+    public TmpProviderLoadError medicalGroupNpi(String medicalGroupNpi) {
+        this.medicalGroupNpi = medicalGroupNpi;
+        return this;
+    }
+
+    public void setMedicalGroupNpi(String medicalGroupNpi) {
+        this.medicalGroupNpi = medicalGroupNpi;
+    }
+
+    public String getDataEntryEndpoint() {
+        return dataEntryEndpoint;
+    }
+
+    public TmpProviderLoadError dataEntryEndpoint(String dataEntryEndpoint) {
+        this.dataEntryEndpoint = dataEntryEndpoint;
+        return this;
+    }
+
+    public void setDataEntryEndpoint(String dataEntryEndpoint) {
+        this.dataEntryEndpoint = dataEntryEndpoint;
+    }
+
+    public String getSourceSystem() {
+        return sourceSystem;
+    }
+
+    public TmpProviderLoadError sourceSystem(String sourceSystem) {
+        this.sourceSystem = sourceSystem;
+        return this;
+    }
+
+    public void setSourceSystem(String sourceSystem) {
+        this.sourceSystem = sourceSystem;
+    }
+
+    public Boolean getInNetwork() {
+        return inNetwork;
+    }
+
+    public Boolean isInNetwork() {
+        return inNetwork;
+    }
+
+    public TmpProviderLoadError inNetwork(Boolean inNetwork) {
+        this.inNetwork = inNetwork;
+        return this;
+    }
+
+    public void setInNetwork(Boolean inNetwork) {
+        this.inNetwork = inNetwork;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -1036,9 +1152,16 @@ public class TmpProviderLoadError implements Serializable {
                 ", providerAddressId=" + getProviderAddressId() +
                 ", providerTaxonomyId=" + getProviderTaxonomyId() +
                 ", networkId=" + getNetworkId() +
+                ", credential=" + getCredential() +
+                ", gender=" + getGender() +
+                ", salutation=" + getSalutation() +
+                ", medicalGroupNpi=" + getMedicalGroupNpi() +
                 ", loadErrorDate='" + getLoadErrorDate() + "'" +
                 ", loadErrorStatus='" + getLoadErrorStatus() + "'" +
                 ", tmpProviderLoadId=" + getTmpProviderLoadId() +
+                ", dataEntryEndpoint='" + getDataEntryEndpoint() + "'" +
+                ", sourceSystem='" + getSourceSystem() + "'" +
+                ", inNetwork='" + getInNetwork() + "'" +
                 ", tenantHashKey='" + getTenantHashKey() +
                 "}";
     }
