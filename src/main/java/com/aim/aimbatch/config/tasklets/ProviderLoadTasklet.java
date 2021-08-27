@@ -48,6 +48,7 @@ public class ProviderLoadTasklet implements Tasklet {
         }
 
         jdbcTemplate.execute("SELECT provider_load_23_update_provider_assigned_members()");
+        jdbcTemplate.execute("SELECT provider_load_997_npi_rule_scan_queue()");
         jdbcTemplate.execute("SELECT provider_load_998_create_alerts()");
         jdbcTemplate.execute("SELECT provider_load_999_post_load()");
 
