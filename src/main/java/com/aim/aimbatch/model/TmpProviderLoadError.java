@@ -219,6 +219,15 @@ public class TmpProviderLoadError implements Serializable {
     @Column(name = "in_network")
     private Boolean inNetwork;
 
+    @Column(name = "date_of_birth")
+    private String dateOfBirth;
+
+    @Column(name = "health_plan_contract_id")
+    private String healthPlanContractId;
+
+    @Column(name = "group_relationship_type")
+    private String groupRelationshipType;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -1077,6 +1086,45 @@ public class TmpProviderLoadError implements Serializable {
         this.inNetwork = inNetwork;
     }
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public TmpProviderLoadError dateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+        return this;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getHealthPlanContractId() {
+        return healthPlanContractId;
+    }
+
+    public TmpProviderLoadError healthPlanContractId(String healthPlanContractId) {
+        this.healthPlanContractId = healthPlanContractId;
+        return this;
+    }
+
+    public void setHealthPlanContractId(String healthPlanContractId) {
+        this.healthPlanContractId = healthPlanContractId;
+    }
+
+    public String getGroupRelationshipType() {
+        return groupRelationshipType;
+    }
+
+    public TmpProviderLoadError groupRelationshipType(String groupRelationshipType) {
+        this.groupRelationshipType = groupRelationshipType;
+        return this;
+    }
+
+    public void setGroupRelationshipType(String groupRelationshipType) {
+        this.groupRelationshipType = groupRelationshipType;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -1163,6 +1211,9 @@ public class TmpProviderLoadError implements Serializable {
                 ", sourceSystem='" + getSourceSystem() + "'" +
                 ", inNetwork='" + getInNetwork() + "'" +
                 ", tenantHashKey='" + getTenantHashKey() +
+                ", dateOfBirth='" + getDateOfBirth() + "'" +
+                ", healthPlanContractId='" + getHealthPlanContractId() + "'" +
+                ", groupRelationshipType='" + getGroupRelationshipType() + "'" +
                 "}";
     }
 }

@@ -202,6 +202,15 @@ public class TmpProviderLoad implements Serializable {
     @Column(name = "in_network")
     private Boolean inNetwork;
 
+    @Column(name = "date_of_birth")
+    private String dateOfBirth;
+
+    @Column(name = "health_plan_contract_id")
+    private String healthPlanContractId;
+    
+    @Column(name = "group_relationship_type")
+    private String groupRelationshipType;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -995,6 +1004,45 @@ public class TmpProviderLoad implements Serializable {
         this.inNetwork = inNetwork;
     }
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public TmpProviderLoad dateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+        return this;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getHealthPlanContractId() {
+        return healthPlanContractId;
+    }
+
+    public TmpProviderLoad healthPlanContractId(String healthPlanContractId) {
+        this.healthPlanContractId = healthPlanContractId;
+        return this;
+    }
+
+    public void setHealthPlanContractId(String healthPlanContractId) {
+        this.healthPlanContractId = healthPlanContractId;
+    }
+
+    public String getGroupRelationshipType() {
+        return groupRelationshipType;
+    }
+
+    public TmpProviderLoad groupRelationshipType(String groupRelationshipType) {
+        this.groupRelationshipType = groupRelationshipType;
+        return this;
+    }
+
+    public void setGroupRelationshipType(String groupRelationshipType) {
+        this.groupRelationshipType = groupRelationshipType;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -1077,6 +1125,9 @@ public class TmpProviderLoad implements Serializable {
                 ", dataEntryEndpoint='" + getDataEntryEndpoint() + "'" +
                 ", sourceSystem='" + getSourceSystem() + "'" +
                 ", inNetwork='" + getInNetwork() + "'" +
+                ", dateOfBirth='" + getDateOfBirth() + "'" +
+                ", healthPlanContractId='" + getHealthPlanContractId() + "'" +
+                ", groupRelationshipType='" + getGroupRelationshipType() + "'" +
                 "}";
     }
 }

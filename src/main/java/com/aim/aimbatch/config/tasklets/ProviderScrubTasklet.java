@@ -28,6 +28,9 @@ public class ProviderScrubTasklet implements Tasklet {
         log.info("Updated {} rows with file name and tenant hash key: {} : {}", i, fileName, tenantHashKey);
 
         /* This will just run all the functions we need to run sequentially */
+        Long start = System.nanoTime();
+        Long duration = 0l;
+        /* Data Scrub Routines */
         jdbcTemplate.execute("SELECT provider_scrub_01_health_plan_provider_id()");
         jdbcTemplate.execute("SELECT provider_scrub_02_missing_network_code()");
         jdbcTemplate.execute("SELECT provider_scrub_03_missing_first_name()");
@@ -78,13 +81,18 @@ public class ProviderScrubTasklet implements Tasklet {
         jdbcTemplate.execute("SELECT provider_scrub_49_non_pcp_accepting_new_members()");
         jdbcTemplate.execute("SELECT provider_scrub_50_invalid_npi_format()");
         jdbcTemplate.execute("SELECT provider_scrub_51_missing_name()");
-        jdbcTemplate.execute("SELECT provider_scrub_52_duplicate_npi()");
-        jdbcTemplate.execute("SELECT provider_scrub_53_duplicate_tax_id()");
         jdbcTemplate.execute("SELECT provider_scrub_54_invalid_city_state_zip()");
         jdbcTemplate.execute("SELECT provider_scrub_55_invalid_phone_number()");
         jdbcTemplate.execute("SELECT provider_scrub_56_invalid_area_code()");
+        jdbcTemplate.execute("SELECT provider_scrub_57_invalid_date_of_birth()");
+        jdbcTemplate.execute("SELECT provider_scrub_58_invalid_tax_id_format()");
+
+        /* Post Scrub Routines */
         jdbcTemplate.execute("SELECT provider_scrub_998_post_scrub()");
         jdbcTemplate.execute("SELECT provider_scrub_999_flag_error_records()");
+        duration = (System.nanoTime() - start) / 1000000;
+        start = System.nanoTime();
+        log.info("Scrub Flag Error Records: {} ms", duration);
 
         return RepeatStatus.FINISHED;
     }
