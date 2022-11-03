@@ -47,7 +47,7 @@ public class ProviderLoadConfiguration {
                                             "accepting_new_referrals", "network_tier_id", "provider_group_name", "outpatient_appointment_availability",
                                             "in_directory", "contract_effective_date", "contract_termination_date", "credential", "gender",
                                             "salutation", "medical_group_npi", "in_network", "source_system", "date_of_birth", "health_plan_contract_id",
-                                            "group_relationship_type"};
+                                            "group_relationship_type", "network_record_status", "panel_status", "provider_entity_type"};
 
     private static final String SQL = "INSERT INTO tmp_provider_load (health_plan_provider_id, network_code, first_name, last_name, business_name, " +
             "npi, tax_id, provider_type, provider_assigned_members, full_or_part_time, in_person_after_hours, supervising_specialist, supervising_npi, " +
@@ -55,13 +55,14 @@ public class ProviderLoadConfiguration {
             "phone_number, fax_number, email, latitude, longitude, location_assigned_members, taxonomy_code, specialty_code, primary_specialty, board_certified, " +
             "board_eligible, is_pcp, accepting_new_patients, accepting_new_referrals, network_tier_id, provider_group_name, outpatient_appointment_availability, " +
             "in_directory, contract_effective_date, contract_termination_date, credential, gender, salutation, medical_group_npi, in_network, source_system, " +
-            "date_of_birth, health_plan_contract_id, group_relationship_type) " +
+            "date_of_birth, health_plan_contract_id, group_relationship_type, network_record_status, panel_status, provider_entity_type) " +
             "VALUES (:healthPlanProviderId, :networkCode, :firstName, :lastName, :businessName, :npi, :taxId, " +
             ":providerType, :providerAssignedMembers, :fullOrPartTime, :inPersonAfterHours, :supervisingSpecialist, :supervisingNpi, :specializationCertificate, " +
             ":healthPlanProviderAddressId, :addressType, :clinicName, :address1, :address2, :address3, :city, :state, :zip, :county, :phoneNumber, :faxNumber," +
             ":email, :latitude, :longitude, :locationAssignedMembers, :taxonomyCode, :specialtyCode, :primarySpecialty, :boardCertified, :boardEligible, :isPcp, " +
             ":acceptingNewPatients, :acceptingNewReferrals, :networkTierId, :providerGroupName, :outpatientAppointmentAvailability, :inDirectory, :contractEffectiveDate, " +
-            ":contractTerminationDate, :credential, :gender, :salutation, :medicalGroupNpi, :inNetwork, :sourceSystem, :dateOfBirth, :healthPlanContractId, :groupRelationshipType)";
+            ":contractTerminationDate, :credential, :gender, :salutation, :medicalGroupNpi, :inNetwork, :sourceSystem, :dateOfBirth, :healthPlanContractId, :groupRelationshipType, " +
+            ":networkRecordStatus, :panelStatus, :providerEntityType)";
 
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
@@ -138,7 +139,7 @@ public class ProviderLoadConfiguration {
     @Bean
     public Step loadProviderFile(JdbcBatchItemWriter<TmpProviderLoad> writer) {
         return stepBuilderFactory.get("loadProviderFile")
-                .<TmpProviderLoad, TmpProviderLoad> chunk(10)
+                .<TmpProviderLoad, TmpProviderLoad> chunk(100)
                 .reader(reader(ProviderLoadConfiguration.OVERRIDDEN_BY_EXPRESSION))
                 .writer(writer)
                 .build();

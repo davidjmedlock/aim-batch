@@ -210,6 +210,15 @@ public class TmpProviderLoad implements Serializable {
     
     @Column(name = "group_relationship_type")
     private String groupRelationshipType;
+    
+    @Column(name = "network_record_status")
+    private String networkRecordStatus;
+    
+    @Column(name = "panel_status")
+    private String panelStatus;
+
+    @Column(name = "provider_entity_type")
+    private String providerEntityType;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -1043,6 +1052,45 @@ public class TmpProviderLoad implements Serializable {
         this.groupRelationshipType = groupRelationshipType;
     }
 
+    public String getNetworkRecordStatus() {
+        return networkRecordStatus;
+    }
+
+    public TmpProviderLoad networkRecordStatus(String networkRecordStatus) {
+        this.networkRecordStatus = networkRecordStatus;
+        return this;
+    }
+
+    public void setNetworkRecordStatus(String networkRecordStatus) {
+        this.networkRecordStatus = networkRecordStatus;
+    }
+
+    public String getPanelStatus() {
+        return panelStatus;
+    }
+
+    public TmpProviderLoad panelStatus(String panelStatus) {
+        this.panelStatus = panelStatus;
+        return this;
+    }
+
+    public void setPanelStatus(String panelStatus) {
+        this.panelStatus = panelStatus;
+    }
+
+    public String getProviderEntityType() {
+        return providerEntityType;
+    }
+
+    public TmpProviderLoad providerEntityType(String providerEntityType) {
+        this.providerEntityType = providerEntityType;
+        return this;
+    }
+
+    public void setProviderEntityType(String providerEntityType) {
+        this.providerEntityType = providerEntityType;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -1128,6 +1176,7 @@ public class TmpProviderLoad implements Serializable {
                 ", dateOfBirth='" + getDateOfBirth() + "'" +
                 ", healthPlanContractId='" + getHealthPlanContractId() + "'" +
                 ", groupRelationshipType='" + getGroupRelationshipType() + "'" +
+                ", providerEntityType='" + getProviderEntityType() + "'" +
                 "}";
     }
 }
