@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MAVEN ONE AARETE DEMO (CENT01)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="aim-batch" />
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.aim.aimbatch.AimBatchApplication" />
+    <option name="PROGRAM_PARAMETERS" value="C:\projects\aim-batch\src\main\resources\input\CENT01_20220707125600_FULL_PROVIDER.csv --spring.profiles.active=aarete" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
