@@ -220,6 +220,12 @@ public class TmpProviderLoad implements Serializable {
     @Column(name = "provider_entity_type")
     private String providerEntityType;
 
+    @Column(name = "corporate_classification")
+    private String corporateClassification;
+
+    @Column(name = "tax_id_type")
+    private String taxIdType;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -1089,6 +1095,32 @@ public class TmpProviderLoad implements Serializable {
 
     public void setProviderEntityType(String providerEntityType) {
         this.providerEntityType = providerEntityType;
+    }
+
+    public String getCorporateClassification() {
+        return corporateClassification;
+    }
+
+    public TmpProviderLoad corporateClassification(String corporateClassification) {
+        this.corporateClassification = corporateClassification;
+        return this;
+    }
+
+    public void setCorporateClassification(String corporateClassification) {
+        this.corporateClassification = corporateClassification;
+    }
+
+    public String getTaxIdType() {
+        return taxIdType;
+    }
+
+    public TmpProviderLoad taxIdType(String taxIdType) {
+        this.taxIdType = taxIdType;
+        return this;
+    }
+
+    public void setTaxIdType(String taxIdType) {
+        this.taxIdType = taxIdType;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
